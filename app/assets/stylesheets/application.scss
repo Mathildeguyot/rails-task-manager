@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap/scss/bootstrap";
+
+input {
+  margin: 10px 10px;
+}
+
+#button-add {
+  color: white;
+}

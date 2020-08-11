@@ -1,4 +1,17 @@
-<h1>My tasks</h1>
-<% @tasks.each do |task| %>
-   <p><%= task %></p>
-<% end %>
+<div class="container">
+  <h1>My tasks</h1>
+  <div class="d-flex flex-column">
+    <% @tasks.each do |task| %>
+      <div class="d-flex">
+        <% if task.completed %>
+            <input type="checkbox" name="checkbox" checked>
+            <label for="checkbox"> <%= link_to task.title, task_path(task) %></label>
+        <% else %>
+            <input type="checkbox" name="checkbox"> <label for="checkbox"> <%= link_to task.title, task_path(task) %></label>
+        <% end %>
+        <%= link_to "far fa-trash-alt", task_path(task), method: :delete %>
+      </div>
+    <% end %>
+  </div>
+  <p class="btn btn-primary text-white" id="button-add"><%= link_to "Add a new task", tasks_new_path %></p>
+</div>
